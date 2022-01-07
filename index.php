@@ -1,44 +1,62 @@
 <!DOCTYPE html>
-<html>
-<title>W3.CSS</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-<style>
-	html,
-	body,
-	h1,
-	h2,
-	h3,
-	h4,
-	h5 {
-		font-family: "Raleway", sans-serif
-	}
-    
-</style>
-<body class="w3-light-grey">
-
-
-	<div class="w3-bar w3-top w3-teal w3-large">
-		<span class="w3-bar-item w3-right">Logo</span>
-	</div>
-
-<div class="w3-display-middle">
-<form class="w3-container w3-card-4">
-<p>
-<input class="w3-input" type="text" style="width:90%" required>
-<label>Name</label></p>
-<p>
-<input class="w3-input" type="password" style="width:90%" required>
-<label>Password</label></p>
-
-
-<p>
-<button class="w3-button w3-section w3-teal w3-ripple"> Log in </button></p>
-
-</form>
-
-</div>
-
+<head>
+  <meta charset="utf-8">
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+  <title>Dashboard Sign In, Free Admin Template</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width">        
+  <link rel="stylesheet" href="css/templatemo_main.css">
+<!-- 
+Dashboard Template 
+http://www.templatemo.com/preview/templatemo_415_dashboard
+-->
+</head>
+<body>
+  <div id="main-wrapper">
+    <div class="navbar navbar-inverse" role="navigation">
+      <div class="navbar-header">
+        <div class="logo"><h1>Dashboard - Admin Template</h1></div>
+      </div>   
+    </div>
+    <div class="template-page-wrapper">
+      <form class="form-horizontal templatemo-signin-form" role="form" action="index.html" method="get">
+        <div class="form-group">
+          <div class="col-md-12">
+            <label for="username" class="col-sm-2 control-label">Username</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="username" placeholder="Username">
+            </div>
+          </div>              
+        </div>
+        <div class="form-group">
+          <div class="col-md-12">
+            <label for="password" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="password" placeholder="Password">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-12">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Remember me
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-12">
+            <div class="col-sm-offset-2 col-sm-10">
+              <input type="submit" value="Sign in" class="btn btn-default">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </body>
-</html> 
+</html>
