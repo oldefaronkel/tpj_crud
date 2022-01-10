@@ -1,5 +1,6 @@
 <!--Splitting the header and footer into separate documents makes things easier!-->
 <?php
+$pageName = "Start";
 include_once 'header.php';
 ?>
 

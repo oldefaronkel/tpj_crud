@@ -1,5 +1,10 @@
 <?php
 
+// General Information
+
+$siteTitle		= "TPJ Crud";
+$siteVersion	= "v1.0.0";
+
 // Check for empty input signup
 function emptyInputSignup($firstname, $lastname, $email, $username, $pwd, $pwdRepeat) {
 	$result;
