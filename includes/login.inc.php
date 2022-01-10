@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_POST["login_btn"])) {
+if (isset($_POST["submit"])) {
 
   // First we get the form data from the URL
   $username = $_POST["uid"];
@@ -14,7 +14,7 @@ if (isset($_POST["login_btn"])) {
 
   // Left inputs empty
   if (emptyInputLogin($username, $pwd) === true) {
-    header("location: ../index.php?error=emptyinput");
+    header("location: ../login.php?error=emptyinput");
 		exit();
   }
 
@@ -24,6 +24,6 @@ if (isset($_POST["login_btn"])) {
   loginUser($conn, $username, $pwd);
 
 } else {
-	header("location: ../index.php");
+	header("location: ../login.php");
     exit();
 }

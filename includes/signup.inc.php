@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_POST["login_btn"])) {
+if (isset($_POST["submit"])) {
 
   // First we get the form data from the URL
   $name = $_POST["name"];
