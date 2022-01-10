@@ -3,9 +3,10 @@
 if (isset($_POST["submit"])) {
 
   // First we get the form data from the URL
-  $name = $_POST["name"];
-  $email = $_POST["email"];
+  $firstname = $_POST["firstname"];
+  $lastname = $_POST["lastname"];
   $username = $_POST["uid"];
+  $email = $_POST["email"];
   $pwd = $_POST["pwd"];
   $pwdRepeat = $_POST["pwdrepeat"];
 
@@ -17,7 +18,7 @@ if (isset($_POST["submit"])) {
 
   // Left inputs empty
   // We set the functions "!== false" since "=== true" has a risk of giving us the wrong outcome
-  if (emptyInputSignup($name, $email, $username, $pwd, $pwdRepeat) !== false) {
+  if (emptyInputSignup($firstname, $lastname, $email, $username, $pwd, $pwdRepeat) !== false) {
     header("location: ../signup.php?error=emptyinput");
 		exit();
   }
@@ -45,7 +46,7 @@ if (isset($_POST["submit"])) {
   // If we get to here, it means there are no user errors
 
   // Now we insert the user into the database
-  createUser($conn, $name, $email, $username, $pwd);
+  createUser($conn, $firstname, $lastname, $email, $username, $pwd);
 
 } else {
 	header("location: ../signup.php");

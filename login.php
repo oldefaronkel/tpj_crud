@@ -91,7 +91,7 @@ include_once 'includes/functions.inc.php';
                 </div><a class="link" href="forget-password.html">Forgot password?</a>
               </div>
               <div class="form-group">
-                <button class="btn btn-primary btn-block" name="submit" type="submit">Sign in</button>
+                <button class="btn btn-primary btn-block" name="submit" type="submit">Log in</button>
               </div>
               <div class="login-social-title">
                 <h5>Don't have account?</h5>

@@ -84,7 +84,7 @@ include_once 'includes/functions.inc.php';
                 echo "<button class='btn btn-primary-light' type='button'><a href='./logout.php'><i data-feather='log-out'></i>Log out</a></button>";
               } else {
                 echo "<button class='btn btn-primary-light' type='button'><a href='./login.php'><i data-feather='log-in'></i>Log in</a></button> ";
-                echo "<button class='btn btn-primary-light' type='button'><a href='./login.php'><i data-feather='user-plus'></i>Sign up</a></button>";
+                echo "<button class='btn btn-primary-light' type='button'><a href='./signup.php'><i data-feather='user-plus'></i>Sign up</a></button>";
               }
               ?>
             </li>
