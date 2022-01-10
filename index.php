@@ -9,12 +9,10 @@ include_once 'header.php';
     <div class="page-header">
       <div class="row">
         <div class="col-sm-6">
-          <h3>Layout Light</h3>
+          <h3><?=$pageName?></h3>
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="../ltr/index.html">Home</a></li>
-            <li class="breadcrumb-item">Starter Kit</li>
-            <li class="breadcrumb-item">Color Version</li>
-            <li class="breadcrumb-item active">Layout Light</li>
+            <li class="breadcrumb-item"><a href="./">Starter Kit</a></li>
+            <li class="breadcrumb-item active">Start</li>
           </ol>
         </div>
         <div class="col-sm-6">
@@ -46,18 +44,6 @@ include_once 'header.php';
         <div class="card">
           <div class="card-header pb-0">
             <h5>Kick start your project development !</h5>
-            <div class="setting-list">
-              <ul class="list-unstyled setting-option">
-                <li>
-                  <div class="setting-primary"><i class="icon-settings"></i></div>
-                </li>
-                <li><i class="view-html fa fa-code font-primary"></i></li>
-                <li><i class="icofont icofont-maximize full-card font-primary"></i></li>
-                <li><i class="icofont icofont-minus minimize-card font-primary"></i></li>
-                <li><i class="icofont icofont-refresh reload-card font-primary"></i></li>
-                <li><i class="icofont icofont-error close-card font-primary"></i></li>
-              </ul>
-            </div>
           </div>
           <div class="card-body">
             <p>Getting start with your project custom requirements using a ready template which is quite difficult and time taking process, viho Admin provides useful features to kick start your project development with no efforts !</p>
@@ -72,17 +58,6 @@ include_once 'header.php';
                 <p>It use PUG as template engine to generate pages and whole template quickly using node js. Save your time for doing the common changes for each page (i.e menu, branding and footer) by generating template with pug.</p>
               </li>
             </ul>
-            <div class="code-box-copy">
-              <button class="code-box-copy__btn btn-clipboard" data-clipboard-target="#example-head" title="Copy"><i class="icofont icofont-copy-alt"></i></button>
-              <pre><code class="language-html" id="example-head">&lt;!-- Cod Box Copy begin --&gt;
-&lt;p&gt;Getting start with your project custom requirements using a ready template which is quite difficult and time taking process, viho Admin provides useful features to kick start your project development with no efforts !&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;viho Admin provides you getting start pages with different layouts, use the layout as per your custom requirements and just change the branding, menu & content.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Every components in viho Admin are decoupled, it means use only components you actually need! Remove unnecessary and extra code easily just by excluding the path to specific SCSS, JS file.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;It use PUG as template engine to generate pages and whole template quickly using node js. Save your time for doing the common changes for each page (i.e menu, branding and footer) by generating template with pug.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!-- Cod Box Copy end --&gt;</code></pre>
-            </div>
           </div>
         </div>
       </div>
@@ -131,37 +106,37 @@ include_once 'header.php';
         </div>
       </div>
 
-
-      <div class="col-md-3">
-        <div class="card">
-          <div class="card-header pb-0">
-            <h5>With Header</h5>
-          </div>
-          <div class="card-body">
-            <h5>Content title</h5>
-            <p>Add a heading to card with <code>.card-header.pb-0</code> class</p>
-            <p>You may also include any &lt;h1&gt;-&lt;h6&gt; with a <code>.card-header.pb-0 </code> & <code>.card-title</code> class to add heading.</p>
-            <p>Jelly beans sugar plum cheesecake cookie oat cake soufflé. Tart lollipop carrot cake sugar plum. Marshmallow wafer tiramisu jelly beans.</p>
+      <?php if (isset($_SESSION["useruid"])) { ?>
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-header pb-0">
+              <h5>Welcome</h5>
+            </div>
+            <div class="card-body">
+              <h5>This is hidden data</h5>
+              <p>You can only see this when logged in.</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-9">
-        <div class="card">
-          <div class="card-header pb-0 card-no-border">
-            <h5>With Header & No Border</h5>
-          </div>
-          <div class="card-body">
-            <h5>Session info</h5>
-            <p>
-            <pre>
+        <div class="col-md-9">
+          <div class="card">
+            <div class="card-header pb-0">
+              <h5><?= $_SESSION['useruid'] ?></h5>
+            </div>
+            <div class="card-body">
+              <h5>Session info</h5>
+              <p>
+              <pre>
               <?php
               print_r($_SESSION);
               ?>
             </pre>
-            </p>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      <?php } ?>
+
     </div>
   </div>
   <!-- Container-fluid Ends-->

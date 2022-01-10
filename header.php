@@ -16,7 +16,7 @@ include_once 'includes/functions.inc.php';
   <meta name="author" content="pixelstrap">
   <link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
   <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
-  <title><?=$siteTitle?> | <?=$pageName?></title>
+  <title><?= $siteTitle ?> | <?= $pageName ?></title>
   <!-- Google font-->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
@@ -100,11 +100,12 @@ include_once 'includes/functions.inc.php';
       <!-- Page Sidebar Start-->
       <header class="main-nav">
 
-    <?php  if (isset($_SESSION["useruid"])) { ?>
+        <?php if (isset($_SESSION["useruid"])) { ?>
 
-      <div class="sidebar-user text-center"><a class="setting-primary" href="javascript:void(0)"><i data-feather="settings"></i></a><img class="img-90 rounded-circle" src="assets/images/dashboard/1.png" alt="">
+          <div class="sidebar-user text-center"><a class="setting-primary" href="javascript:void(0)"><i data-feather="settings"></i></a><img class="img-90 rounded-circle" src="assets/images/dashboard/1.png" alt="">
             <div class="badge-bottom"><span class="badge badge-primary">New</span></div><a href="user-profile.html">
-              <h6 class="mt-3 f-14 f-w-600">Emay Walter</h6></a>
+              <h6 class="mt-3 f-14 f-w-600">Emay Walter</h6>
+            </a>
             <p class="mb-0 font-roboto">Human Resources Department</p>
             <ul>
               <li><span><span class="counter">19.8</span>k</span>
@@ -118,7 +119,7 @@ include_once 'includes/functions.inc.php';
               </li>
             </ul>
           </div>
-  <?php  } ?>
+        <?php  } ?>
 
 
         <nav>
@@ -128,7 +129,12 @@ include_once 'includes/functions.inc.php';
                 <li class="back-btn">
                   <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
                 </li>
-                <li class="dropdown"><a class="nav-link menu-title" href="../theme/index.html" target="_blank"><i data-feather="home"></i><span>Dashboard</span></a></li>
+                <li class="sidebar-main-title">
+                    <div>
+                      <h6>Menu </h6>
+                    </div>
+                  </li>
+                <li class="dropdown"><a class="nav-link menu-title" href="./" target="_blank"><i data-feather="home"></i><span>Dashboard</span></a></li>
                 <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i data-feather="anchor"></i><span>Starter kit</span></a>
                   <ul class="nav-submenu menu-content">
                     <li><a class="submenu-title" href="javascript:void(0)">color version<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span></a>
@@ -152,8 +158,16 @@ include_once 'includes/functions.inc.php';
                     </li>
                   </ul>
                 </li>
-                <li class="dropdown"><a class="nav-link menu-title" href="http://support.pixelstrap.com/help-center" target="_blank"><i data-feather="headphones"></i><span>Raise Support</span></a></li>
-                <li class="dropdown"><a class="nav-link menu-title" href="https://docs.pixelstrap.com/viho/document/" target="_blank"><i data-feather="file-text"></i><span>Documentation </span></a></li>
+                <?php
+                if ($_SESSION["userrole"] === "Admin") { ?>
+                  <li class="sidebar-main-title">
+                    <div>
+                      <h6>Admin menu </h6>
+                    </div>
+                  </li>
+                  <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i data-feather="users"></i><span>Users </span></a></li>
+                  <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i data-feather="settings"></i><span>Settings </span></a></li>
+                <?php } ?>
               </ul>
             </div>
           </div>
