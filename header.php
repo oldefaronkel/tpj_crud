@@ -58,8 +58,8 @@ include_once 'includes/functions.inc.php';
     <div class="page-main-header">
       <div class="main-header-right row m-0">
         <div class="main-header-left">
-          <div class="logo-wrapper"><a href="index.html"><img class="img-fluid" src="assets/images/logo/logo.png" alt=""></a></div>
-          <div class="dark-logo-wrapper"><a href="index.html"><img class="img-fluid" src="assets/images/logo/dark-logo.png" alt=""></a></div>
+          <div class="logo-wrapper"><a href="./"><img class="img-fluid" src="assets/images/logo/logo.png" alt=""></a></div>
+          <div class="dark-logo-wrapper"><a href="./"><img class="img-fluid" src="assets/images/logo/dark-logo.png" alt=""></a></div>
           <div class="toggle-sidebar"><i class="status_toggle middle" data-feather="align-center" id="sidebar-toggle"></i></div>
         </div>
         <div class="left-menu-header col">
@@ -81,7 +81,7 @@ include_once 'includes/functions.inc.php';
             </li>
             <li class="onhover-dropdown p-0">
               <?php
-              if (isset($_SESSION["useruid"])) {
+              if (isset($_SESSION["user"])) {
                 echo "<button class='btn btn-primary-light' type='button'><a href='./logout.php'><i data-feather='log-out'></i>Log out</a></button>";
               } else {
                 echo "<button class='btn btn-primary-light' type='button'><a href='./login.php'><i data-feather='log-in'></i>Log in</a></button> ";
@@ -100,13 +100,13 @@ include_once 'includes/functions.inc.php';
       <!-- Page Sidebar Start-->
       <header class="main-nav">
 
-        <?php if (isset($_SESSION["useruid"])) { ?>
+        <?php if (isset($_SESSION['user'])) { ?>
 
-          <div class="sidebar-user text-center"><a class="setting-primary" href="javascript:void(0)"><i data-feather="settings"></i></a><img class="img-90 rounded-circle" src="assets/images/dashboard/1.png" alt="">
-            <div class="badge-bottom"><span class="badge badge-primary">New</span></div><a href="user-profile.html">
-              <h6 class="mt-3 f-14 f-w-600">Emay Walter</h6>
+          <div class="sidebar-user text-center"><a class="setting-primary" href="./edit-profile.php"><i data-feather="settings"></i></a><img class="img-90 rounded-circle" src="assets/images/dashboard/1.png" alt="">
+            <div class="badge-bottom"></div><a href="./user-profile.php">
+              <h6 class="mt-3 f-14 f-w-600"><?= $_SESSION['user']['Firstname'] . " " . $_SESSION['user']['Lastname'] ?></h6>
             </a>
-            <p class="mb-0 font-roboto">Human Resources Department</p>
+            <p class="mb-0 font-roboto"><?= $_SESSION['user']['Title'] ?></p>
             <ul>
               <li><span><span class="counter">19.8</span>k</span>
                 <p>Follow</p>
@@ -130,11 +130,11 @@ include_once 'includes/functions.inc.php';
                   <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
                 </li>
                 <li class="sidebar-main-title">
-                    <div>
-                      <h6>Menu </h6>
-                    </div>
-                  </li>
-                <li class="dropdown"><a class="nav-link menu-title" href="./" target="_blank"><i data-feather="home"></i><span>Dashboard</span></a></li>
+                  <div>
+                    <h6>Menu </h6>
+                  </div>
+                </li>
+                <li class="dropdown"><a class="nav-link menu-title" href="./"><i data-feather="home"></i><span>Dashboard</span></a></li>
                 <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i data-feather="anchor"></i><span>Starter kit</span></a>
                   <ul class="nav-submenu menu-content">
                     <li><a class="submenu-title" href="javascript:void(0)">color version<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span></a>
@@ -159,7 +159,7 @@ include_once 'includes/functions.inc.php';
                   </ul>
                 </li>
                 <?php
-                if ($_SESSION["userrole"] === "Admin") { ?>
+                if (isset($_SESSION["user"]) && $_SESSION["user"]["Role"] === "Admin") { ?>
                   <li class="sidebar-main-title">
                     <div>
                       <h6>Admin menu </h6>

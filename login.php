@@ -67,6 +67,8 @@ $pageName = "Login";
                   echo "<p class='h6 txt-warning'>Fill in all fields!</p><br>";
                 } else if ($_GET["error"] == "wronglogin") {
                   echo "<p class='h6 txt-danger'>Wrong username/email or password!</p><br>";
+                }else if ($_GET["error"] == "login") {
+                  echo "<p class='h6 txt-succes'>You have signed up!</p><br>";
                 }
               }
               ?>

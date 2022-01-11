@@ -2,7 +2,14 @@
 session_start();
 include_once 'includes/functions.inc.php';
 $pageName = "Sign up";
+
+// Populate array for function select
+$sql = "SELECT userfunctionsId, userFunctionsTitle FROM userfunctions ORDER BY userFunctionsTitle ASC";
+$result = mysqli_query($conn, $sql);
+$functions = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +22,7 @@ $pageName = "Sign up";
   <meta name="author" content="pixelstrap">
   <link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
   <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
-  <title><?=$siteTitle?> | <?=$pageName?></title>
+  <title><?= $siteTitle ?> | <?= $pageName ?></title>
   <!-- Google font-->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
@@ -75,6 +82,8 @@ $pageName = "Sign up";
                   echo "<p class='h6 txt-danger'>Something went wrong!</p>";
                 } else if ($_GET["error"] == "usernametaken") {
                   echo "<p class='h6 txt-warning'>Username already taken!</p>";
+                } else if ($_GET["error"] == "functionerror") {
+                  echo "<p class='h6 txt-warning'>Please select a valid function!</p>";
                 } else if ($_GET["error"] == "none") {
                   echo "<p class='h6 txt-success'>You have signed up!</p>";
                 }
@@ -82,43 +91,52 @@ $pageName = "Sign up";
               }
               ?>
               <div class="form-group">
-
                 <label>Your Name <small>(first & last)</small></label>
                 <div class="small-group">
                   <div class="input-group"><span class="input-group-text"><i class="icon-user"></i></span>
-                    <input class="form-control" type="text" name="firstname" placeholder="First Name">
+                    <input class="form-control" type="text" name="usersFirstname" placeholder="First Name">
                   </div>
                   <div class="input-group"><span class="input-group-text"><i class="icon-user"></i></span>
-                    <input class="form-control" type="text" name="lastname" placeholder="Last Name">
+                    <input class="form-control" type="text" name="usersLastname" placeholder="Last Name">
                   </div>
                 </div>
               </div>
 
               <div class="form-group">
-                <label>Username</label>
-                <div class="input-group"><span class="input-group-text"><i class="icon-user"></i></span>
-                  <input class="form-control" type="text" name="uid" placeholder="username">
+                <label>Username & Function</label>
+                <div class="small-group">
+                  <div class="input-group"><span class="input-group-text"><i class="icon-user"></i></span>
+                    <input class="form-control" type="text" name="usersUid" placeholder="Username">
+                  </div>
+                  <div class="input-group">
+                    <select class="form-select" name="usersFunction" placeholder="Function">
+                      <option value="" disabled selected>Select function</option>
+                      <?php for ($i = 0; $i < count($functions); $i++) : ?>
+                        <option value="<?= $functions[$i]["userfunctionsId"] ?>"><?= $functions[$i]["userFunctionsTitle"] ?></option>
+                      <?php endfor; ?>
+                    </select>
+                  </div>
                 </div>
               </div>
 
               <div class="form-group">
                 <label>Email Address</label>
                 <div class="input-group"><span class="input-group-text"><i class="icon-email"></i></span>
-                  <input class="form-control" type="email" name="email" placeholder="username@mail.com">
+                  <input class="form-control" type="email" name="usersEmail" placeholder="username@mail.com">
                 </div>
               </div>
 
               <div class="form-group">
                 <label>Password</label>
                 <div class="input-group"><span class="input-group-text"><i class="icon-lock"></i></span>
-                  <input class="form-control" type="password" name="pwd" placeholder="Password">
+                  <input class="form-control" type="password" name="usersPwd" placeholder="Password">
                   <div class="show-hide"><span class="show"> </span></div>
                 </div>
               </div>
               <div class="form-group">
                 <label>Repeat Password</label>
                 <div class="input-group"><span class="input-group-text"><i class="icon-lock"></i></span>
-                  <input class="form-control" type="password" name="pwdrepeat" placeholder="Repeat password">
+                  <input class="form-control" type="password" name="usersPwdRepeat" placeholder="Repeat password">
                   <div class="show-hide"><span class="show"> </span></div>
                 </div>
               </div>

@@ -9,14 +9,14 @@ include_once 'header.php';
     <div class="page-header">
       <div class="row">
         <div class="col-sm-6">
-          <h3><?=$pageName?></h3>
+          <h3><?= $pageName ?></h3>
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="./">Starter Kit</a></li>
             <li class="breadcrumb-item active">Start</li>
           </ol>
         </div>
+        <!-- Bookmark Start
         <div class="col-sm-6">
-          <!-- Bookmark Start-->
           <div class="bookmark">
             <ul>
               <li><a href="javascript:void(0)" data-container="body" data-bs-toggle="popover" data-placement="top" title="" data-original-title="Tables"><i data-feather="inbox"></i></a></li>
@@ -32,8 +32,8 @@ include_once 'header.php';
               </li>
             </ul>
           </div>
-          <!-- Bookmark Ends-->
         </div>
+        Bookmark Ends-->
       </div>
     </div>
   </div>
@@ -106,7 +106,7 @@ include_once 'header.php';
         </div>
       </div>
 
-      <?php if (isset($_SESSION["useruid"])) { ?>
+      <?php if (isset($_SESSION["user"])) { ?>
         <div class="col-md-3">
           <div class="card">
             <div class="card-header pb-0">
@@ -121,16 +121,21 @@ include_once 'header.php';
         <div class="col-md-9">
           <div class="card">
             <div class="card-header pb-0">
-              <h5><?= $_SESSION['useruid'] ?></h5>
+              <h5><?= $_SESSION['user']['Uid'] ?></h5>
             </div>
             <div class="card-body">
-              <h5>Session info</h5>
+              
               <p>
-              <pre>
-              <?php
-              print_r($_SESSION);
-              ?>
-            </pre>
+
+                <?php
+                if (isset($_SESSION["user"]) && $_SESSION["user"]["Role"] === "Admin") {
+                  echo '<h5>Session info</h5><pre>' . print_r($_SESSION, true) . '</pre>';
+                  echo '<h5>getUserData</h5><pre>' . print_r(getUserData($conn, $_SESSION['user']['UUID']), true) . '</pre>';
+                } else {
+                  echo "<h5>Bla bla</h5>";
+                }
+                ?>
+
               </p>
             </div>
           </div>
