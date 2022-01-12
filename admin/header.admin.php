@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once 'includes/functions.inc.php';
+include_once '../includes/functions.inc.php';
 
 ?>
 
@@ -14,8 +14,8 @@ include_once 'includes/functions.inc.php';
   <meta name="description" content="viho admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
   <meta name="keywords" content="admin template, viho admin template, dashboard template, flat admin template, responsive admin template, web app">
   <meta name="author" content="pixelstrap">
-  <link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
-  <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+  <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
   <title><?= $siteTitle ?> | <?= $pageName ?></title>
   <!-- Google font-->
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -23,25 +23,25 @@ include_once 'includes/functions.inc.php';
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
   <!-- Font Awesome-->
-  <link rel="stylesheet" type="text/css" href="assets/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/fontawesome.css">
   <!-- ico-font-->
-  <link rel="stylesheet" type="text/css" href="assets/css/icofont.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/icofont.css">
   <!-- Themify icon-->
-  <link rel="stylesheet" type="text/css" href="assets/css/themify.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/themify.css">
   <!-- Flag icon-->
-  <link rel="stylesheet" type="text/css" href="assets/css/flag-icon.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/flag-icon.css">
   <!-- Feather icon-->
-  <link rel="stylesheet" type="text/css" href="assets/css/feather-icon.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/feather-icon.css">
   <!-- Plugins css start-->
-  <link rel="stylesheet" type="text/css" href="assets/css/prism.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/prism.css">
   <!-- Plugins css Ends-->
   <!-- Bootstrap css-->
-  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
   <!-- App css-->
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-  <link id="color" rel="stylesheet" href="assets/css/color-1.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+  <link id="color" rel="stylesheet" href="../assets/css/color-1.css" media="screen">
   <!-- Responsive css-->
-  <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
 </head>
 
 <body>
@@ -58,8 +58,8 @@ include_once 'includes/functions.inc.php';
     <div class="page-main-header">
       <div class="main-header-right row m-0">
         <div class="main-header-left">
-          <div class="logo-wrapper"><a href="./"><img class="img-fluid" src="assets/images/logo/logo.png" alt=""></a></div>
-          <div class="dark-logo-wrapper"><a href="./"><img class="img-fluid" src="assets/images/logo/dark-logo.png" alt=""></a></div>
+          <div class="logo-wrapper"><a href="./"><img class="img-fluid" src="../assets/images/logo/logo.png" alt=""></a></div>
+          <div class="dark-logo-wrapper"><a href="./"><img class="img-fluid" src="../assets/images/logo/dark-logo.png" alt=""></a></div>
           <div class="toggle-sidebar"><i class="status_toggle middle" data-feather="align-center" id="sidebar-toggle"></i></div>
         </div>
         <div class="left-menu-header col">
@@ -102,8 +102,8 @@ include_once 'includes/functions.inc.php';
 
         <?php if (isset($_SESSION['user'])) { ?>
 
-          <div class="sidebar-user text-center"><a class="setting-primary" href="./edit-profile.php"><i data-feather="settings"></i></a><img class="img-90 rounded-circle" src="assets/images/dashboard/1.png" alt="">
-            <div class="badge-bottom"></div><a href="./user-profile.php">
+          <div class="sidebar-user text-center"><a class="setting-primary" href="./edit-profile.php"><i data-feather="settings"></i></a><img class="img-90 rounded-circle" src="../assets/images/dashboard/1.png" alt="">
+            <div class="badge-bottom"></div><a href="../user-profile.php">
               <h6 class="mt-3 f-14 f-w-600"><?= $_SESSION['user']['Firstname'] . " " . $_SESSION['user']['Lastname'] ?></h6>
             </a>
             <p class="mb-0 font-roboto"><?= $_SESSION['user']['Title'] ?></p>
@@ -134,7 +134,7 @@ include_once 'includes/functions.inc.php';
                     <h6>Menu </h6>
                   </div>
                 </li>
-                <li class="dropdown"><a class="nav-link menu-title" href="./"><i data-feather="home"></i><span>Dashboard</span></a></li>
+                <li class="dropdown"><a class="nav-link menu-title" href="../"><i data-feather="home"></i><span>Dashboard</span></a></li>
                 <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i data-feather="anchor"></i><span>Starter kit</span></a>
                   <ul class="nav-submenu menu-content">
                     <li><a class="submenu-title" href="javascript:void(0)">color version<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span></a>
@@ -165,7 +165,7 @@ include_once 'includes/functions.inc.php';
                       <h6>Admin menu </h6>
                     </div>
                   </li>
-                  <li class="dropdown"><a class="nav-link menu-title" href="admin/index.php"><i data-feather="users"></i><span>Users </span></a></li>
+                  <li class="dropdown"><a class="nav-link menu-title" href="index.php"><i data-feather="users"></i><span>Users </span></a></li>
                   <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i data-feather="settings"></i><span>Settings </span></a></li>
                 <?php } ?>
               </ul>
